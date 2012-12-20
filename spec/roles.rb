@@ -8,7 +8,9 @@ module CreatePrimaryAddress
   end
 
   def save_with_primary_address
-    save and save_primary_address
+    self.class.transaction do
+      save! and save_primary_address!
+    end
   end
 
   private
@@ -23,9 +25,9 @@ module CreatePrimaryAddress
     @primary_address.present?
   end
 
-  def save_primary_address
+  def save_primary_address!
     @primary_address.primary = true
     @primary_address.user_id = self.id
-    @primary_address.save
+    @primary_address.save!
   end
 end
