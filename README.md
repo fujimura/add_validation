@@ -1,6 +1,6 @@
-# AddValidation
+# add_validation [![Build Status](https://travis-ci.org/fujimura/add_validation.png?branch=master)](https://travis-ci.org/fujimura/add_validation) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/fujimura/add_validation)
 
-TODO: Write a gem description
+Add validation from ActiveModel instance.
 
 ## Installation
 
