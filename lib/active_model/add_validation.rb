@@ -1,7 +1,8 @@
-require "add_validation/version"
-
 require 'active_support'
 require 'active_model'
+
+require "add_validation/version"
+require "add_validation/dsl"
 
 module ActiveModel
   module AddValidation

@@ -2,8 +2,8 @@ require "bundler/setup"
 require Bundler.root + 'lib/active_model/add_validation'
 
 require 'active_record'
-require 'models'
 require 'roles'
+require 'models'
 require 'rspec'
 require 'pry'
 

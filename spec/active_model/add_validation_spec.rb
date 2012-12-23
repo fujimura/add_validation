@@ -2,21 +2,21 @@ require 'spec_helper'
 
 describe User do
   describe 'at creation' do
-    context 'with no addresses' do
-      let(:user) { User.new name: "Alice" }
+    let(:user) { User.new name: "Alice" }
+    before do
+      user.prepare_to_create_primary_address
+    end
 
+    context 'with no addresses' do
       it 'should be invalid' do
-        user.extend CreatePrimaryAddress
+        user.primary_address = nil
         user.valid?
         user.errors[:primary_address].should include "Primary address is not assgined"
       end
     end
 
     context 'with one address' do
-      let(:user) { User.new name: "Alice" }
-
       before do
-        user.extend CreatePrimaryAddress
         user.primary_address = Address.new tel: '090-1234-5678'
         user
       end
@@ -27,10 +27,7 @@ describe User do
     end
 
     describe 'created address' do
-      let(:user) { User.new name: "Alice" }
-
       before do
-        user.extend CreatePrimaryAddress
         user.primary_address = Address.new tel: '090-1234-5678'
         user.save_with_primary_address
       end
