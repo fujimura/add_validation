@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include ActiveModel::AddValidation::DSL
   include ActiveModel::AddValidation
-  
+
   anticipate CreatePrimaryAddress
 
   has_many :addresses
